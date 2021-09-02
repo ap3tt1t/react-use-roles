@@ -1,0 +1,15 @@
+.title {
+    margin: 1rem;
+}
+.header {
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid black;
+}
+.check {
+    border: 1px solid black;
+    margin: 1rem;
+}
+.section {
+    margin: 2rem;
+}

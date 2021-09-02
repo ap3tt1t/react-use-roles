@@ -1,6 +1,6 @@
 {
   "name": "react-use-roles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple React Hook and Library for role based rendering",
   "author": "ap3tt1t",
   "license": "MIT",
