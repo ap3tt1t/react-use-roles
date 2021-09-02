@@ -47,6 +47,12 @@ const RoleBasedComponent = () => {
 				<p>Hello 3</p>
 				<p>Hello 3 again</p>
 			</RoleChecker>
+			<RoleChecker allowed={['testers', 'admin']} mode="includes"> {// IF ROLES MATCHES ANY LISTED ROLE, ACCESS WILL BE GRANTED (DEFAULTS TO INCLUDE IN MODE IS NOT SET)}
+				<p>Hello 2</p>
+			</RoleChecker>
+			<RoleChecker allowed={['testers', 'admin']} mode="none"> {// IF ROLES MATCHES ANY LISTED ROLE, ACCESS WILL BE DENIED}
+				<p>Hello 2</p>
+			</RoleChecker>
 		</>
 	)
 }
