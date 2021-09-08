@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css'
-import { RoleChecker, RolesProvider, useRoles } from 'react-use-roles'
+import { RoleChecker, RolesProvider, useRoles, isAllowed } from 'react-use-roles'
 
 const App = () => {
 	return <RolesProvider>
@@ -13,10 +13,11 @@ const App = () => {
 export default App
 
 const RoleBasedComponent = () => {
-	const { setRole, setDefaultTemplate } = useRoles()
+	const { role, setRole, setDefaultTemplate } = useRoles()
 	useEffect(() => {
 		setRole('admin')
 		setDefaultTemplate(<div style={{color: 'blue', fontStyle: 'italic'}}>No Ways!</div>) // OPTIONAL
+		console.log(role)
 	}, [])
 	return (
 		<>
@@ -59,6 +60,13 @@ const RoleBasedComponent = () => {
 					<p className='check'>Hello 4</p>
 					<p className='check'>You can have multiple children elements</p>
 				</RoleChecker>
+			</div>
+			<div className='section'>
+				<p className='header'>isAllowed Function</p>
+				<p>EXPECTED</p>
+				<p className='check'>Hello 5</p>
+				<p>SHOWN:</p>
+				{(isAllowed(role, ['admin'])) && <p className='check'>Hello 5</p>}
 			</div>
 		</>
 	)

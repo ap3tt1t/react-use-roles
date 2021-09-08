@@ -1,4 +1,4 @@
-const isAllowed = (role:String, allowed:Array<String>, mode:String="includes") => {
+const isAllowed = (role:String | null, allowed:Array<String>, mode:String="includes") => {
     let isAllowed = false;
     switch (mode) {
         case "includes": 

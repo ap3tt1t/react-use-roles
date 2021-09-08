@@ -5,7 +5,7 @@ import {useRolesHook} from './../context'
 type ModeType = "includes" | "none"
 
 type RoleCheckerProps = {
-    allowed: Array<string>
+    allowed: Array<String>
     template?: object,
     mode?: ModeType
 }

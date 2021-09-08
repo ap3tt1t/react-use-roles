@@ -19,7 +19,7 @@ yarn add react-use-roles
 ```tsx
 import React, { useEffect } from 'react'
 
-import { RoleChecker, RolesProvider, useRoles } from 'react-use-roles'
+import { RoleChecker, RolesProvider, useRoles, isAllowed } from 'react-use-roles'
 
 const App = () => {
 	return <RolesProvider>
@@ -30,7 +30,7 @@ const App = () => {
 export default App
 
 const RoleBasedComponent = () => {
-	const { setRole, setDefaultTemplate } = useRoles()
+	const { role, setRole, setDefaultTemplate } = useRoles()
 	useEffect(() => {
 		setRole('admin')
 		setDefaultTemplate(<div style={{color: 'blue', fontStyle: 'italic'}}>No Ways!</div>) // OPTIONAL
@@ -53,7 +53,8 @@ const RoleBasedComponent = () => {
 			<RoleChecker allowed={['testers', 'admin']} mode="none"> {// IF ROLES MATCHES ANY LISTED ROLE, ACCESS WILL BE DENIED}
 				<p>Hello 2</p>
 			</RoleChecker>
-		</>
+			{isAllowed(role, ['admin']) && <p>Function to checking if this is allowed</p>}
+		</p>
 	)
 }
 ```
